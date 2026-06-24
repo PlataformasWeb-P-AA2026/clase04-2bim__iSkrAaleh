@@ -53,6 +53,12 @@ class NumeroTelefonicoForm(ModelForm):
         model = NumeroTelefonico
         fields = ['telefono', 'tipo', 'estudiante']
 
+    def clean_telefono(self):
+        valor = self.cleaned_data['telefono']
+        if not (valor.startswith('099') or valor.startswith('098')):
+            raise forms.ValidationError("Prefijo incorrecto verificar bien")
+        return valor
+
 
 class NumeroTelefonicoEstudianteForm(ModelForm):
 
@@ -65,3 +71,9 @@ class NumeroTelefonicoEstudianteForm(ModelForm):
     class Meta:
         model = NumeroTelefonico
         fields = ['telefono', 'tipo', 'estudiante']
+
+    def clean_telefono(self):
+        valor = self.cleaned_data['telefono']
+        if not (valor.startswith('099') or valor.startswith('098')):
+            raise forms.ValidationError("Prefijo incorrecto verificar bien")
+        return valor
