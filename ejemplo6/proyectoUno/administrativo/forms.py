@@ -10,10 +10,10 @@ class EstudianteForm(ModelForm):
         model = Estudiante
         fields = ['nombre', 'apellido', 'cedula', 'correo']
         labels = {
-            'nombre': _('Ingrese nombre por favor'),
-            'apellido': _('Ingrese apellido por favor'),
-            'cedula': _('Ingrese cédula por favor'),
-            'correo': _('Ingrese correo por favor'),
+            'nombre': _('Ingrese su nombre'),
+            'apellido': _('Ingrese su apellido'),
+            'cedula': _('Ingrese su cédula'),
+            'correo': _('Ingrese su correo'),
         }
 
 
@@ -52,6 +52,7 @@ class NumeroTelefonicoForm(ModelForm):
     class Meta:
         model = NumeroTelefonico
         fields = ['telefono', 'tipo', 'estudiante']
+        labels = {"telefono": ("Ingrese su numero de telefono")}
 
 
 class NumeroTelefonicoEstudianteForm(ModelForm):
