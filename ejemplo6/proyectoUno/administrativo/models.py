@@ -34,3 +34,11 @@ class NumeroTelefonico(models.Model):
 
     def __str__(self):
         return "%s %s" % (self.telefono, self.tipo)
+
+class Mensaje(models.Model):
+    correo = models.EmailField()
+    nombres = models.CharField(max_length=100)
+    mensaje = models.CharField(max_length=255)
+
+    def __str__(self):
+        return "%s %s" % (self.nombres, self.correo)

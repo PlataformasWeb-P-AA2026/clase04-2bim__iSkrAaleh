@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Importar las clases del modelo
-from administrativo.models import Estudiante, NumeroTelefonico
+from administrativo.models import Estudiante, NumeroTelefonico, Mensaje
 
 # Agregar la clase Estudiante para administrar desde
 # interfaz de administración
@@ -43,3 +43,12 @@ class NumeroTelefonicoAdmin(admin.ModelAdmin):
     raw_id_fields = ('estudiante',)
 
 admin.site.register(NumeroTelefonico, NumeroTelefonicoAdmin)
+
+# Se crea una clase que hereda
+# de ModelAdmin para el modelo
+# Mensaje
+class MensajeAdmin(admin.ModelAdmin):
+    list_display = ('nombres', 'correo', 'mensaje')
+    search_fields = ('nombres', 'correo')
+
+admin.site.register(Mensaje, MensajeAdmin)
